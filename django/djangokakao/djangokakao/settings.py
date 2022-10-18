@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-from my_settings import *
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = MY_SECRET_KEY
+SECRET_KEY = 'django-insecure-#lx72)37e1fr%9g+%mjh-zs#0o&m_i97%cm(!@l@(=45+&6^7q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -33,19 +33,11 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'login',
-    'corsheaders',
-    #allauth
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    #provider
-    'allauth.socialaccount.providers.google',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +48,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'djangokakao.urls'
@@ -133,8 +124,3 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# CORS 관련 추가
-CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:3000'
-                        ,'http://localhost:3000']
-CORS_ALLOW_CREDENTIALS = True
